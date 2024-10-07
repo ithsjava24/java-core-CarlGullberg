@@ -14,6 +14,7 @@ public class Warehouse {
     private final Set<UUID> changedProductIds = new HashSet<>();
 
 
+
     private Warehouse() {
         this.name = "MyStore";
     }
@@ -25,6 +26,8 @@ public class Warehouse {
     public static Warehouse getInstance() {
         if (instance == null) {
             instance = new Warehouse();
+        }else {
+            instance.clearProducts();
         }
         return instance;
     }
@@ -47,6 +50,7 @@ public class Warehouse {
         products.clear();
         changedProductIds.clear();
     }
+
 
 
 
@@ -80,6 +84,7 @@ UUID finalId = id;
 
     public Optional<ProductRecord> getProductById(UUID id) {
         return products.stream().filter(product -> product.uuid().equals(id)).findFirst();
+
     }
 
     public void updateProductPrice(UUID id, BigDecimal newPrice) {

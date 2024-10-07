@@ -33,6 +33,7 @@ public class ProductRecord {
         return price;
     }
 
+
     public void setPrice(BigDecimal newPrice) {
         this.price = newPrice;
     }
@@ -62,5 +63,9 @@ public class ProductRecord {
                 ", category=" + category +
                 ", price=" + price +
                 '}';
+    }
+
+    public String getName() {
+        return name;
     }
 }
